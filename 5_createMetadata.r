@@ -19,7 +19,7 @@ library(rasterVis)
 library(RSQLite)
 library(xtable)
 
-inPath <- "G:/RegionalSDM/outputs"
+inPath <- "E:/SALCC/outputs"
 
 ## find and load model data ----
 # get a list of what's in the directory
@@ -31,16 +31,16 @@ fileName <- d[[n]]
 load(paste(inPath,fileName, sep="/"))
 
 ## set paths (after loading Rdata file in case objects exist) ----
-rnwPath <- "G:/RegionalSDM/scripts/Regional_SDM"
-outPath <- "G:/RegionalSDM/outputs/metadata"
-gridpath <- "G:/RegionalSDM/outputs/grids"
-stateBoundPath <- "G:/RegionalSDM/other_spatial"
-dbLoc <- "G:/RegionalSDM/databases"
+rnwPath <- "K:/Projects/USFWS/SALCC_Species_Modeling_2015_16/SDM_Working/GitHub"
+outPath <- "E:/SALCC/outputs/metadata"
+gridpath <- "E:/SALCC/outputs/grids"
+stateBoundPath <- "E:/SALCC/other_spatial"
+dbLoc <- "E:/SALCC/databases"
 
-extentMapName <- "StatesNE"
+extentMapName <- "US_Southeast_limits"
 
-testareapath <- "G:/RegionalSDM/other_spatial"
-testAreaName <- "reg5_pred_20161027"
+testareapath <- "E:/SALCC/inputs/background"
+testAreaName <- "SalccAcf_Inters_10km_Albers_clip"
 
 ras <- raster(paste(gridpath, "/", ElementNames$Code, ".tif", sep = ""))
 
@@ -81,6 +81,7 @@ dbDisconnect(db)
 setwd(outPath)
 
 knit2pdf(paste(rnwPath,"MetadataEval_knitr.rnw",sep="/"), output=paste(ElementNames$Code, ".tex",sep=""))
+
 
 
 
