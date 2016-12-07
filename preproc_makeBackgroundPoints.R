@@ -5,7 +5,7 @@ library(spsurvey)
 library(rgdal)
 
 # This is the directory that has your study area polygon.
-setwd("D:/RegionalSDM/inputs/background")
+setwd("D:/blahblahblah/inputs/background")
 
 # the name of the study area polygon
 StudyAreaPoly <- "clpBnd_SDM.shp"
@@ -15,6 +15,9 @@ layer <- strsplit(StudyAreaPoly,"\\.")[[1]][[1]]
 shapef <- readOGR(StudyAreaPoly, layer = layer)
 att.pt <- shapef@data
 
+#here are some changes to the master
+# and here are some more
+
 #get projection info for later
 projInfo <- shapef@proj4string
 
@@ -22,7 +25,9 @@ projInfo <- shapef@proj4string
 nm.RanPtFile <- paste(layer, "_RanPts", sep = "")
 
 # Enter the number of random points you want to generate 
-numpts <- 500000
+# total area of entire study area is about 1,064,000 km^2
+# if our target is about 1 pt / 20 km^2, that comes out to about 53,000 points. 
+numpts <- 53000
 
 # Create the design list
 dsgn <- list(None=list(panel=c(Panel=numpts), seltype="Equal"))
