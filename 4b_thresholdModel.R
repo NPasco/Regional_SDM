@@ -5,13 +5,15 @@
 library(raster)
 library(rgdal)
 library(ROCR)
+library(RSQLite)
+library(DBI)
 
 inPath <- "E:/SALCC/outputs"
 gridpath <- "E:/SALCC/outputs/grids"
 #out path
 outRas <- "E:/SALCC/outputs/grids" 
 
-dbLoc <- "G:/RegionalSDM/databases"
+dbLoc <- "E:/SALCC/databases"
 
 ## get any current documentation ----
 db_file <- paste(dbLoc, "SDM_lookupAndTracking.sqlite", sep = "/")
