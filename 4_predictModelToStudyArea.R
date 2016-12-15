@@ -12,16 +12,16 @@ library(randomForest)
 
 # set up paths ----
 # directory for the RData files (analysis data)
-rdataLoc <- "D:/RegionalSDM/zz_testArea/outputs"
+rdataLoc <- "E:/SALCC/outputs"
 
 # directory for the environmental rasters
-pathToRas <- "D:/RegionalSDM/zz_testArea/env_vars/geotiffs"
+pathToRas <- "E:/SALCC/env_vars/nativeR"
 
 # output path (best if different from rdataloc)
-outRasPath <- "D:/RegionalSDM/zz_testArea/outputs/grids"
+outRasPath <- "E:/SALCC/outputs/grids"
 
 # get the customized version of the predict function
-source('D:/RegionalSDM/scripts/Regional_SDM/RasterPredictMod.R')
+source('K:/Projects/USFWS/SALCC_Species_Modeling_2015_16/SDM_Working/GitHub/RasterPredictMod.R')
 
 #  End, lines that require editing
 #
@@ -33,13 +33,13 @@ setwd(rdataLoc)
 fileList <- dir(pattern = ".Rdata$",full.names=FALSE)
 fileList
 # choose one to run, load it #### requires editing ####
-n <- 1
+n <- 5
 load(fileList[[n]])
 
 ##Make the raster stack
 stackOrder <- names(df.full)[indVarCols]
 setwd(pathToRas)
-rasL <- paste(stackOrder,".tif", sep="")
+rasL <- paste(stackOrder,".grd", sep="")
 fullL <- as.list(paste(pathToRas, rasL, sep="/"))
 names(fullL) <- stackOrder
 envStack <- stack(fullL)

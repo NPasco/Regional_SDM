@@ -19,21 +19,21 @@ library(randomForest)
 #  Lines that require editing
 #
 # set up paths ----
-sppPtLoc <- "D:/RegionalSDM/inputs/species/glypmuhl/point_data"
-ranPtLoc <- "D:/RegionalSDM/inputs/background"
-dbLoc <- "D:/RegionalSDM/databases"
-pathToRas <- "D:/RegionalSDM/env_vars/geotiffs"
+sppPtLoc <- "E:/SALCC/inputs/species/point_data"
+ranPtLoc <- "E:/SALCC/inputs/background"
+dbLoc <- "E:/SALCC/databases"
+pathToRas <- "E:/SALCC/env_vars/nativeR"
 
 setwd(sppPtLoc)
 
 # directory for saving RData files (analysis data)
-rdataOut <- "D:/RegionalSDM/outputs"
+rdataOut <- "E:/SALCC/outputs"
 
 # the names of the files to be uploaded: presence points
-df.in <-read.dbf("glypmuhl_att.dbf")
+df.in <-read.dbf("schwamer_att.dbf")
 
 # absence points
-df.abs <- read.dbf(paste(ranPtLoc,"clpBnd_SDM_RanPt_att.dbf", sep="/"))
+df.abs <- read.dbf(paste(ranPtLoc,"sdmatt2schwamer_expl_clean.dbf", sep="/"))
 
 #  End, lines that require editing
 #
@@ -52,8 +52,8 @@ names(df.in) <- tolower(names(df.in))
 names(df.abs) <- tolower(names(df.abs))
 
 # get a list of env vars from the folder used to create the raster stack
-raslist <- list.files(path = pathToRas, pattern = ".tif$")
-rasnames <- gsub(".tif", "", raslist)
+raslist <- list.files(path = pathToRas, pattern = ".grd$")
+rasnames <- gsub(".grd", "", raslist)
 
 # are these all in the lookup database? Checking here.
 db_file <- paste(dbLoc, "SDM_lookupAndTracking.sqlite", sep = "/")
