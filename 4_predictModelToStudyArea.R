@@ -33,7 +33,7 @@ setwd(rdataLoc)
 fileList <- dir(pattern = ".Rdata$",full.names=FALSE)
 fileList
 # choose one to run, load it #### requires editing ####
-n <- 5
+n <- 6
 load(fileList[[n]])
 
 ##Make the raster stack

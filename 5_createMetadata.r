@@ -26,7 +26,7 @@ inPath <- "E:/SALCC/outputs"
 d <- dir(path = inPath, pattern = ".Rdata",full.names=FALSE)
 d
 # which one do we want to run?
-n <- 4
+n <- 1
 fileName <- d[[n]]
 load(paste(inPath,fileName, sep="/"))
 
@@ -35,7 +35,7 @@ rnwPath <- "K:/Projects/USFWS/SALCC_Species_Modeling_2015_16/SDM_Working/GitHub"
 outPath <- "E:/SALCC/outputs/metadata"
 gridpath <- "E:/SALCC/outputs/grids"
 stateBoundPath <- "E:/SALCC/other_spatial"
-dbLoc <- "E:/SALCC/databases"
+dbLoc <- "E:/SALCC/databases/new"
 
 extentMapName <- "US_Southeast_limits"
 

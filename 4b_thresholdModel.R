@@ -13,19 +13,18 @@ gridpath <- "E:/SALCC/outputs/grids"
 #out path
 outRas <- "E:/SALCC/outputs/grids" 
 
-dbLoc <- "E:/SALCC/databases"
-
-## get any current documentation ----
-db_file <- paste(dbLoc, "SDM_lookupAndTracking.sqlite", sep = "/")
-
 ## find and load model data ----
 # get a list of what's in the directory
 d <- dir(path = inPath, pattern = ".Rdata",full.names=FALSE)
 d
 # which one do we want to run?
-n <- 6
+n <- 3
 fileName <- d[[n]]
 load(paste(inPath,fileName, sep="/"))
+dbLoc <- "E:/SALCC/databases/new"
+
+## get any current documentation ----
+db_file <- paste(dbLoc, "SDM_lookupAndTracking.sqlite", sep = "/")
 
 ## Calculate different thresholds ----
 #set an empty list
